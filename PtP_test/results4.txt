@@ -1,0 +1,11 @@
+Process 1 of 2 on compute-8.cloud
+Process 0 of 2 on compute-9.cloud
+1000 times alpha = 1.908112e-05 
+2000 times alpha = 1.599050e-05 
+4000 times alpha = 1.604712e-05 
+8000 times alpha = 1.594886e-05 
+Nsend(2) = 100  beta = 3.277230e-07, bandwidth = 1.952869e+08 
+Nsend(2) = 1000  beta = -1.757002e-08, bandwidth = -3.642569e+09 
+Nsend(2) = 10000  beta = 6.638042e-08, bandwidth = 9.641398e+08 
+Nsend(2) = 100000  beta = 7.579926e-08, bandwidth = 8.443354e+08 
+Nsend(2) = 1000000  beta = 6.799653e-08, bandwidth = 9.412245e+08 

@@ -1,0 +1,5 @@
+Column=000000512 Fraction= 0.5% Gflops=5.591e+02
+Column=000001024 Fraction= 1.0% Gflops=5.815e+02
+Column=000001536 Fraction= 1.5% Gflops=4.509e+02
+Column=000002048 Fraction= 2.0% Gflops=4.246e+02
+Column=000002560 Fraction= 2.6% Gflops=3.897e+02

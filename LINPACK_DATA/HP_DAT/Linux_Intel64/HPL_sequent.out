@@ -1,0 +1,87 @@
+================================================================================
+HPLinpack 2.2  --  High-Performance Linpack benchmark  --   February 24, 2016
+Written by A. Petitet and R. Clint Whaley,  Innovative Computing Laboratory, UTK
+Modified by Piotr Luszczek, Innovative Computing Laboratory, UTK
+Modified by Julien Langou, University of Colorado Denver
+================================================================================
+
+An explanation of the input/output parameters follows:
+T/V    : Wall time / encoded variant.
+N      : The order of the coefficient matrix A.
+NB     : The partitioning blocking factor.
+P      : The number of process rows.
+Q      : The number of process columns.
+Time   : Time in seconds to solve the linear system.
+Gflops : Rate of execution for solving the linear system.
+
+The following parameter values will be used:
+
+N      :  136000   140000 
+NB     :     196 
+PMAP   : Row-major process mapping
+P      :       2 
+Q      :      10 
+PFACT  :   Right 
+NBMIN  :       4 
+NDIV   :       2 
+RFACT  :   Crout 
+BCAST  :  1ringM 
+DEPTH  :       1 
+SWAP   : Mix (threshold = 64)
+L1     : transposed form
+U      : transposed form
+EQUIL  : yes
+ALIGN  : 8 double precision words
+
+--------------------------------------------------------------------------------
+
+- The matrix A is randomly generated for each test.
+- The following scaled residual check will be computed:
+      ||Ax-b||_oo / ( eps * ( || x ||_oo * || A ||_oo + || b ||_oo ) * N )
+- The relative machine precision (eps) is taken to be               1.110223e-16
+- Computational tests pass if scaled residuals are less than                16.0
+
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR11C2R4      136000   196     2    10            2358.13              7.112e+02
+HPL_pdgesv() start time Tue Nov 29 11:36:38 2016
+
+HPL_pdgesv() end time   Tue Nov 29 12:15:56 2016
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :              12.98
++ Max aggregated wall time pfact . . :              10.10
++ Max aggregated wall time mxswp . . :               9.36
+Max aggregated wall time update  . . :            2348.23
++ Max aggregated wall time laswp . . :             562.69
+Max aggregated wall time up tr sv  . :               0.68
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0019837 ...... PASSED
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR11C2R4      140000   196     2    10            2552.72              7.166e+02
+HPL_pdgesv() start time Tue Nov 29 12:16:44 2016
+
+HPL_pdgesv() end time   Tue Nov 29 12:59:17 2016
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :              15.06
++ Max aggregated wall time pfact . . :              11.91
++ Max aggregated wall time mxswp . . :              11.13
+Max aggregated wall time update  . . :            2541.77
++ Max aggregated wall time laswp . . :             607.58
+Max aggregated wall time up tr sv  . :               0.63
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0021799 ...... PASSED
+================================================================================
+
+Finished      2 tests with the following results:
+              2 tests completed and passed residual checks,
+              0 tests completed and failed residual checks,
+              0 tests skipped because of illegal input values.
+--------------------------------------------------------------------------------
+
+End of Tests.
+================================================================================

@@ -1,0 +1,155 @@
+================================================================================
+HPLinpack 2.2  --  High-Performance Linpack benchmark  --   February 24, 2016
+Written by A. Petitet and R. Clint Whaley,  Innovative Computing Laboratory, UTK
+Modified by Piotr Luszczek, Innovative Computing Laboratory, UTK
+Modified by Julien Langou, University of Colorado Denver
+================================================================================
+
+An explanation of the input/output parameters follows:
+T/V    : Wall time / encoded variant.
+N      : The order of the coefficient matrix A.
+NB     : The partitioning blocking factor.
+P      : The number of process rows.
+Q      : The number of process columns.
+Time   : Time in seconds to solve the linear system.
+Gflops : Rate of execution for solving the linear system.
+
+The following parameter values will be used:
+
+N      :   70000 
+NB     :     128      512     1024 
+PMAP   : Row-major process mapping
+P      :       8 
+Q      :       2 
+PFACT  :    Left 
+NBMIN  :       8 
+NDIV   :       2 
+RFACT  :    Left    Crout 
+BCAST  :  1ringM 
+DEPTH  :       1 
+SWAP   : Mix (threshold = 128)
+L1     : transposed form
+U      : transposed form
+EQUIL  : yes
+ALIGN  : 8 double precision words
+
+--------------------------------------------------------------------------------
+
+- The matrix A is randomly generated for each test.
+- The following scaled residual check will be computed:
+      ||Ax-b||_oo / ( eps * ( || x ||_oo * || A ||_oo + || b ||_oo ) * N )
+- The relative machine precision (eps) is taken to be               1.110223e-16
+- Computational tests pass if scaled residuals are less than                16.0
+
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR11L2L8       70000   128     8     2            1067.19              2.143e+02
+HPL_pdgesv() start time Sat Nov 26 10:58:05 2016
+
+HPL_pdgesv() end time   Sat Nov 26 11:15:52 2016
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :              31.90
++ Max aggregated wall time pfact . . :              30.32
++ Max aggregated wall time mxswp . . :              29.77
+Max aggregated wall time update  . . :            1035.36
++ Max aggregated wall time laswp . . :             491.72
+Max aggregated wall time up tr sv  . :               0.41
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0035649 ...... PASSED
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR11C2L8       70000   128     8     2            1066.65              2.144e+02
+HPL_pdgesv() start time Sat Nov 26 11:16:18 2016
+
+HPL_pdgesv() end time   Sat Nov 26 11:34:04 2016
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :              34.26
++ Max aggregated wall time pfact . . :              32.81
++ Max aggregated wall time mxswp . . :              32.28
+Max aggregated wall time update  . . :            1036.83
++ Max aggregated wall time laswp . . :             490.21
+Max aggregated wall time up tr sv  . :               0.41
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0039626 ...... PASSED
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR11L2L8       70000   512     8     2            1059.13              2.159e+02
+HPL_pdgesv() start time Sat Nov 26 11:34:30 2016
+
+HPL_pdgesv() end time   Sat Nov 26 11:52:09 2016
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :              64.36
++ Max aggregated wall time pfact . . :              60.79
++ Max aggregated wall time mxswp . . :              60.09
+Max aggregated wall time update  . . :            1016.57
++ Max aggregated wall time laswp . . :             465.43
+Max aggregated wall time up tr sv  . :               0.42
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0041266 ...... PASSED
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR11C2L8       70000   512     8     2            1069.25              2.139e+02
+HPL_pdgesv() start time Sat Nov 26 11:52:34 2016
+
+HPL_pdgesv() end time   Sat Nov 26 12:10:23 2016
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :              66.09
++ Max aggregated wall time pfact . . :              62.65
++ Max aggregated wall time mxswp . . :              61.99
+Max aggregated wall time update  . . :            1027.26
++ Max aggregated wall time laswp . . :             480.29
+Max aggregated wall time up tr sv  . :               0.42
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0036038 ...... PASSED
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR11L2L8       70000  1024     8     2            1108.33              2.063e+02
+HPL_pdgesv() start time Sat Nov 26 12:10:49 2016
+
+HPL_pdgesv() end time   Sat Nov 26 12:29:17 2016
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :             106.02
++ Max aggregated wall time pfact . . :             100.85
++ Max aggregated wall time mxswp . . :             100.36
+Max aggregated wall time update  . . :            1059.74
++ Max aggregated wall time laswp . . :             505.45
+Max aggregated wall time up tr sv  . :               0.43
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0034337 ...... PASSED
+================================================================================
+T/V                N    NB     P     Q               Time                 Gflops
+--------------------------------------------------------------------------------
+WR11C2L8       70000  1024     8     2            1106.63              2.066e+02
+HPL_pdgesv() start time Sat Nov 26 12:29:44 2016
+
+HPL_pdgesv() end time   Sat Nov 26 12:48:10 2016
+
+--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV--VVV-
+Max aggregated wall time rfact . . . :             111.56
++ Max aggregated wall time pfact . . :             106.42
++ Max aggregated wall time mxswp . . :             105.94
+Max aggregated wall time update  . . :            1061.37
++ Max aggregated wall time laswp . . :             508.95
+Max aggregated wall time up tr sv  . :               0.43
+--------------------------------------------------------------------------------
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0034026 ...... PASSED
+================================================================================
+
+Finished      6 tests with the following results:
+              6 tests completed and passed residual checks,
+              0 tests completed and failed residual checks,
+              0 tests skipped because of illegal input values.
+--------------------------------------------------------------------------------
+
+End of Tests.
+================================================================================
